@@ -1,0 +1,52 @@
+<?php
+	if(isset($_POST['request']))
+	{	
+		$has_ship_label = $_POST['has_ship_label'];
+		$need_package = $_POST['need_package'];
+		
+		$firstName_pickup = $_POST['firstName_pickup'];	/*Pick Up*/
+		$lastName_pickup = $_POST['lastName_pickup']; 
+		$street_pickup = $_POST['street_pickup']; 
+		$street2_pickup = $_POST['street2_pickup']; 
+		$city_pickup = $_POST['city_pickup']; 
+		$state_pickup = $_POST['state_pickup']; 
+		$zip_pickup = $_POST['zip_pickup']; 
+		$phone_pickup = $_POST['phone_pickup'];
+		$firstName_shipto = $_POST['firstName_shipto'];	/*Ship To*/
+		$lastName_shipto = $_POST['lastName_shipto']; 
+		$street_shipto = $_POST['street_shipto']; 
+		$street2_shipto = $_POST['street2_shipto']; 
+		$city_shipto = $_POST['city_shipto']; 
+		$state_shipto = $_POST['state_shipto']; 
+		$zip_shipto = $_POST['zip_shipto']; 
+		$phone_shipto = $_POST['phone_shipto'];
+		
+		global $wpdb;
+		$sql=$wpdb->insert("pickupPOST", array(
+		"AlreadyHaveLabel"=>$has_ship_label
+		,"NeedPackage"=>$need_package	
+		,"FirstName_Pickup"=>$firstName_pickup		/*Pick Up*/
+		,"LastName_Pickup"=>$lastName_pickup
+		,"Street_Pickup"=>$street_pickup
+		,"Street2_Pickup"=>$street2_pickup
+		,"City_Pickup"=>$city_pickup
+		,"State_Pickup"=>$state_pickup
+		,"Phone_Pickup"=>$phone_pickup	
+		,"FirstName_Shipto"=>$firstName_shipto	/*Ship To*/
+		,"LastName_Shipto"=>$lastName_shipto
+		,"Street_Shipto"=>$street_shipto
+		,"Street2_Shipto"=>$street2_shipto
+		,"City_Shipto"=>$city_shipto
+		,"State_Shipto"=>$state_shipto
+		,"Zip_Shipto"=>$zip_shipto
+		,"Phone_Shipto"=>$phone_shipto
+		));
+		if ($sql==true)
+		{
+			echo "<script>alert('data inserted')</script>";
+		}
+		else
+		{
+			echo "<script>alert('Error! Failed to insert')</script>";
+		}
+	}

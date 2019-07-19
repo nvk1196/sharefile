@@ -1,0 +1,49 @@
+<table style="width:100%">
+  <tr>
+    <th>Address</th>
+    <th>Service</th> 
+    <th>Pick up</th>
+    <th>Tracking</th>
+  </tr>
+  <tr>
+    <td>201 Donaghey Ave, Conway, AR, 72035</td>
+    <td align="center"><button id="service" onclick="changeColor_service()">Service</button></td>
+    <td align="center"><button id="pickup" onclick="changeColor_pickup()">Pickup</button></td>
+    <td align="center"><button id="tracking" onclick="showTracking()">Tracking</button></td>
+  </tr>
+</table>
+
+<script>
+  var service = false; 
+  var pickup = false;
+function changeColor_service() {
+  	if (service == false)
+	{
+	document.getElementById("service").style.backgroundColor = "#55b74e";
+	service = true;
+	}
+	else
+	{
+	document.getElementById("service").style.backgroundColor = "grey";
+	service = false;
+	}
+}
+
+function changeColor_pickup() {
+  	if (pickup == false)
+	{
+	document.getElementById("pickup").style.backgroundColor = "#55b74e";
+	pickup = true;
+	}
+	else
+	{
+	document.getElementById("pickup").style.backgroundColor = "grey";
+	pickup = false;
+	}
+}
+
+function showTracking() {
+var tracking = 123456; //example tracking
+window.location = "https://tools.usps.com/go/TrackConfirmAction?tRef=fullpage&tLc=2&text28777=&tLabels=" + tracking + "%2C";
+}
+</script>

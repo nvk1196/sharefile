@@ -1,0 +1,67 @@
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
+	
+		<form method = "POST" style="position: relative; left: 10px;">
+		  <input type="checkbox" id="has_ship_label" onclick="hideEverything()" name="has_ship_label">
+		  <font size="4" style="font-family:Calibri;">I already have shipping label. [simple_tooltip content="This option is popular between people who return online merchandises."][wp-svg-icons icon="question" wrap="span"][/simple_tooltip]</font><br>
+		  <input type="checkbox" id="need_package" name="need_package"> 
+		  <font size="4" id="need_package_text" style="font-family:Calibri;">Package this item for me.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[simple_tooltip content="We'll pack your item using USPS Flat Rate Boxes."][wp-svg-icons icon="question" wrap="span"][/simple_tooltip]</font><br>
+		</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<div>
+<button id="pickuptoggle" onClick="$('#pickupform').toggle();">[wp-svg-icons icon="home" wrap="span"]&nbsp;&nbsp;&nbsp;Enter Pick Up Location</button> 
+</div><br>
+
+<form method = "POST" id="pickupform" style="display:none;">
+	<input type="text" placeholder="First name" style="width: 130px;font-family:Calibri;" id="firstname_pickup" /> 
+	<input type="text" placeholder="Last name" style="width: 130px;font-family:Calibri;" id="lastname_pickup" /><br><br> 
+	
+	<input type="text" placeholder="Street address" style="width: 260px;font-family:Calibri;" id="street1_pickup" /><br>
+	<input type="text" placeholder="Street address 2 (optional)" style="width: 260px;font-family:Calibri;" id="street2_pickup" /><br>
+	
+	<input type="text" placeholder="City" style="width: 260px;font-family:Calibri;" id="city_pickup" /><br>
+	<input type="text" placeholder="State" style="width: 127px;font-family:Calibri;" id="state_pickup" />
+	<input type="text" placeholder="ZIP" style="width: 130px;font-family:Calibri;" id="zip_pickup" /><br>	
+	<input type="text" placeholder="Phone number" style="width: 260px;font-family:Calibri;" id="phone_pickup" />
+</form>
+
+<div>
+<button id="shiptotoggle" onClick="$('#shiptoform').toggle();">[wp-svg-icons icon="airplane" wrap="span"]&nbsp;&nbsp;&nbsp;Enter Ship To Location</button> 
+</div><br>
+
+<form method = "POST" id="shiptoform" style="display:none;">
+
+	<input type="text" placeholder="First name" style="width: 130px;font-family:Calibri;" id="firstname_shipto" /> 
+	<input type="text" placeholder="Last name" style="width: 130px;font-family:Calibri;" id="lastname_shipto" /><br><br> 
+	
+	<input type="text" placeholder="Street address" style="width: 260px;font-family:Calibri;" id="street1_shipto" /><br>
+	<input type="text" placeholder="Street address 2 (optional)" style="width: 260px;font-family:Calibri;" id="street2_shipto" /><br>
+	
+	<input type="text" placeholder="City" style="width: 260px;font-family:Calibri;" id="city_shipto" /><br>
+	<input type="text" placeholder="State" style="width: 127px;font-family:Calibri;" id="state_shipto" />
+	<input type="text" placeholder="ZIP" style="width: 130px;font-family:Calibri;" id="zip_shipto" /><br>
+	
+	<input type="text" placeholder="Phone number" style="width: 260px;font-family:Calibri;" id="phone_shipto" />
+</form>
+
+<!-- After click button, user will ask to verify his/her phone-->
+<form action="http://google.com">
+    <button type="submit" id="request" style="background-color:red;position: relative; left: 600px;">Request Pick Up</button>
+</form>
+
+<script>
+function hideEverything() {
+  var has_ship_label = document.getElementById("has_ship_label");
+  var shiptoform = document.getElementById("shiptotoggle");
+
+  if (has_ship_label.checked == true){
+	shiptotoggle.style.display = "none";
+  } 
+  else {
+	shiptotoggle.style.display = "block";
+  }
+}
+</script>

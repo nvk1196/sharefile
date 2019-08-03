@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<style>
+*{font-family:Verdana;}
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 20px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 12px;
+  padding: 10px 24px;
+}
+
+
+.toggle {  
+
+}
+
+
+</style>
+</head>
+
+<body>
+<div border:1px solid #000;">
+				
+		<form method = "POST">
+		  <input type="checkbox" id="has_ship_label" onclick="hideEverything()" name="has_ship_label">
+		  <font >I already have shipping label. <i class="fa fa-question-circle-o"></i> </font><br>
+		  <input type="checkbox" id="need_package" name="need_package"> 
+		  <font id="need_package_text" style="">Package this item for me.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font><br>
+		</form><br>
+		
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<label id="pickuptoggle" onClick="$('#pickupform').toggle();" class="toggle">Enter Pick Up Location</label>
+<hr align="left" style="border: 0.5px solid black;" width="350px">
+<form method = "POST" id="pickupform" style="display:none;">
+	<input type="text" placeholder="First name" style="width: 130px;" id="firstname_pickup" /> 
+	<input type="text" placeholder="Last name" style="width: 130px;" id="lastname_pickup" /><br><br> 
+	<input type="text" placeholder="Street address" style="width: 260px;" id="street1_pickup" /><br>
+	<input type="text" placeholder="Street address 2 (optional)" style="width: 260px;" id="street2_pickup" /><br>	
+	<input type="text" placeholder="City" style="width: 260px;" id="city_pickup" /><br>
+	<input type="text" placeholder="State" style="width: 127px;" id="state_pickup" />
+	<input type="text" placeholder="ZIP" style="width: 130px;" id="zip_pickup" /><br>	
+	<input type="text" placeholder="Phone number" style="width: 260px;" id="phone_pickup" />
+</form>
+
+<br>
+
+<label id="shiptotoggle" onClick="$('#shiptoform').toggle();" class="toggle">Enter Ship To Location</label><br>
+<form method = "POST" id="shiptoform" style="display:none;">
+	<input type="text" placeholder="First name" style="width: 130px;" id="firstname_shipto" /> 
+	<input type="text" placeholder="Last name" style="width: 130px;" id="lastname_shipto" /><br><br> 	
+	<input type="text" placeholder="Street address" style="width: 260px;" id="street1_shipto" /><br>
+	<input type="text" placeholder="Street address 2 (optional)" style="width: 260px;" id="street2_shipto" /><br>	
+	<input type="text" placeholder="City" style="width: 260px;" id="city_shipto" /><br>
+	<input type="text" placeholder="State" style="width: 127px;" id="state_shipto" />
+	<input type="text" placeholder="ZIP" style="width: 130px;" id="zip_shipto" /><br>	
+	<input type="text" placeholder="Phone number" style="width: 260px;" id="phone_shipto" />
+</form>
+
+<!-- After click button, user will ask to verify his/her phone-->
+<form action="http://google.com">
+    <button type="submit" id="request" style="position: relative; left: 150px;" class="button">Request Pick Up</button>
+</form>
+
+
+
+
+</div>
+</body>
+
+<script>
+function hideEverything() {
+  var has_ship_label = document.getElementById("has_ship_label");
+  var shiptoform = document.getElementById("shiptotoggle");
+
+  if (has_ship_label.checked == true){
+	shiptotoggle.style.display = "none";
+  } 
+  else {
+	shiptotoggle.style.display = "block";
+  }
+}
+</script>
